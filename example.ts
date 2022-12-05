@@ -1,4 +1,4 @@
-import Router from "./mod.ts";
+import Router from "./mod.ts"
 
 const r = new Router<string>()
 r.add(new URLPattern({ pathname: '/books' }), "a")

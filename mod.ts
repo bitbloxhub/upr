@@ -11,9 +11,11 @@ export default class Router<RoutesTo> {
 		this._urlpatterns.set(urlpattern, mapsTo)
 	}
 
-	route(url: string): [RoutesTo, Record<string, string>] | undefined {
+	route(
+		url: string,
+	): [RoutesTo, Record<string, string | undefined>] | undefined {
 		for (const _route of this.urlpatterns.entries()) {
-			const execd = _route[KEY].exec({pathname: url})
+			const execd = _route[KEY].exec({ pathname: url })
 			if (execd) {
 				return [_route[VALUE], execd.pathname.groups]
 			}
